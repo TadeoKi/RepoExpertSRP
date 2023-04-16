@@ -1,17 +1,27 @@
 ﻿using System;
 using Library;
 
-namespace Program
+namespace Library
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            string appointmentResult = AppointmentService.CreateAppointment("Steven Jhonson", "986782342", "5555-555-555", DateTime.Now, "Wall Street", "Armand");
-            Console.WriteLine(appointmentResult);
+        {            
+            Paciente Paciente1 = new Paciente("Tadeo","Ki","21","Masculino","50624558","095412777"); /*creando paciente*/
+            Paciente Paciente2 = new Paciente("Tomas","Ki","","Masculino","","");                    /*creando paciente incorrecto*/
+            Doctor Doctor1 = new Doctor("Hendry","Henderson","Neurocirujano");                       /*creando doctor*/  
+            Doctor Doctor2 = new Doctor("Kevin","Peterson","");                                      /*creando doctor incorrecto*/
+            Appointment Cita1 = new Appointment("24/04/23","16:30");                                 /*creando cita*/
+            Appointment Cita2 = new Appointment("26/04/23","");                                      /*creando cita incorrecta*/
 
-            string appointmentResult2 = AppointmentService.CreateAppointment("Ralf Manson", "", "5555-555-555", DateTime.Now, "Queen Street", "");
-            Console.WriteLine(appointmentResult2);
+            //Doctor1.AsignarPaciente(Paciente1, Doctor1);                                /*Cada doctor puede tener una lista de pacientes*/
+            //Paciente1.AsignarDoc(Paciente1, Doctor1);                                   /*Cada paciente puede tener un doctor asignado*/
+
+            Cita1.Agendar(Paciente1, Doctor1);
+
+
+
+            
         }
     }
 }
